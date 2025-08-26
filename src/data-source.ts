@@ -5,13 +5,12 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-// Parse DATABASE_URL se disponível
 let config: any = {
   type: 'postgres',
   synchronize: false,
   logging: false,
   entities: [Game],
-  migrations: ['dist/database/migrations/*.js'],
+  migrations: ['src/database/migrations/*.ts'],
   subscribers: [],
   migrationsTableName: 'migrations_history',
 };
