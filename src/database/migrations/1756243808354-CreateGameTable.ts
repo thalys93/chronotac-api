@@ -4,11 +4,21 @@ export class CreateGameTable1756243808354 implements MigrationInterface {
     name = 'CreateGameTable1756243808354'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`CREATE TABLE \`games\` (\`id\` int NOT NULL AUTO_INCREMENT, \`board\` json NOT NULL, \`winner\` text NULL, \`isDraw\` tinyint NOT NULL DEFAULT 0, \`currentPlayer\` varchar(255) NOT NULL, \`playedDate\` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6), \`status\` text NOT NULL, PRIMARY KEY (\`id\`)) ENGINE=InnoDB`);
+        await queryRunner.query(`
+            CREATE TABLE "games" (
+                "id" SERIAL NOT NULL, 
+                "board" jsonb NOT NULL, 
+                "winner" text, 
+                "isDraw" boolean NOT NULL DEFAULT false, 
+                "currentPlayer" varchar(255) NOT NULL, 
+                "playedDate" TIMESTAMP NOT NULL DEFAULT now(), 
+                "status" text NOT NULL, 
+                CONSTRAINT "PK_c9b16b62917b5595af982d66337" PRIMARY KEY ("id")
+            )
+        `);
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.query(`DROP TABLE \`games\``);
+        await queryRunner.query(`DROP TABLE "games"`);
     }
-
 }
