@@ -1,0 +1,456 @@
+{
+	"info": {
+		"_postman_id": "f84b1c48-e80e-4d33-a666-9adeea34f1a2",
+		"name": "ChronoTac API",
+		"description": "API para gerenciamento de jogos Tic-Tac-Toe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30573060"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "games",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Obter um jogo específico",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/games/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"games",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "2517",
+													"description": "(Required) ID do jogo"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Jogo encontrado",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/games/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"games",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"game\": {\n    \"board\": [\n      [\n        \"strin\",\n        \"st\"\n      ],\n      [\n        \"string\",\n        \"string\"\n      ]\n    ],\n    \"currentPlayer\": \"string\",\n    \"id\": 5710,\n    \"winner\": \"string\",\n    \"isDraw\": false,\n    \"playedDate\": \"2022-05-14T18:22:54.257Z\",\n    \"status\": \"finished\"\n  }\n}"
+										},
+										{
+											"name": "Jogo não encontrado",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/games/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"games",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"string\"\n}"
+										},
+										{
+											"name": "Erro interno do servidor",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/games/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"games",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Salvar um novo jogo",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"board\": [\n    [\n      \"string\",\n      \"string\"\n    ],\n    [\n      \"string\",\n      \"string\"\n    ]\n  ],\n  \"currentPlayer\": \"string\",\n  \"winner\": \"string\",\n  \"isDraw\": false,\n  \"status\": \"finished\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/games",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"games"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Jogo salvo com sucesso",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"board\": [\n    [\n      \"string\",\n      \"string\"\n    ],\n    [\n      \"string\",\n      \"string\"\n    ]\n  ],\n  \"currentPlayer\": \"string\",\n  \"winner\": \"string\",\n  \"isDraw\": false,\n  \"status\": \"finished\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/games",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"games"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"message\": \"string\",\n  \"game\": {\n    \"board\": [\n      [\n        \"string\",\n        \"string\"\n      ],\n      [\n        \"string\",\n        \"string\"\n      ]\n    ],\n    \"currentPlayer\": \"string\",\n    \"id\": 1124,\n    \"winner\": \"string\",\n    \"isDraw\": false,\n    \"playedDate\": \"2004-03-06T13:35:00.049Z\",\n    \"status\": \"finished\"\n  }\n}"
+								},
+								{
+									"name": "Erro interno do servidor",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"board\": [\n    [\n      \"string\",\n      \"string\"\n    ],\n    [\n      \"string\",\n      \"string\"\n    ]\n  ],\n  \"currentPlayer\": \"string\",\n  \"winner\": \"string\",\n  \"isDraw\": false,\n  \"status\": \"finished\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/games",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"games"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Listar histórico de jogos",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/games?page=1&limit=10",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"games"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "Número da página"
+										},
+										{
+											"key": "limit",
+											"value": "10",
+											"description": "Número de itens por página"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Lista de jogos recuperada com sucesso",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/games?page=1&limit=10",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"games"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1",
+													"description": "Número da página"
+												},
+												{
+													"key": "limit",
+													"value": "10",
+													"description": "Número de itens por página"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"games\": [\n    {\n      \"board\": [\n        [\n          \"string\",\n          \"string\"\n        ],\n        [\n          \"str\",\n          \"string\"\n        ]\n      ],\n      \"currentPlayer\": \"string\",\n      \"id\": 7313,\n      \"winner\": \"string\",\n      \"isDraw\": false,\n      \"playedDate\": \"1993-03-16T22:36:24.301Z\",\n      \"status\": \"finished\"\n    },\n    {\n      \"board\": [\n        [\n          \"string\",\n          \"string\"\n        ],\n        [\n          \"string\",\n          \"string\"\n        ]\n      ],\n      \"currentPlayer\": \"string\",\n      \"id\": 3678,\n      \"winner\": \"string\",\n      \"isDraw\": false,\n      \"playedDate\": \"1980-06-17T10:07:35.204Z\",\n      \"status\": \"finished\"\n    }\n  ],\n  \"pagination\": {\n    \"page\": 9668,\n    \"limit\": 7308,\n    \"total\": 4720,\n    \"totalPages\": 7767\n  }\n}"
+								},
+								{
+									"name": "Erro interno do servidor",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/games?page=1&limit=10",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"games"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1",
+													"description": "Número da página"
+												},
+												{
+													"key": "limit",
+													"value": "10",
+													"description": "Número de itens por página"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"error\": \"string\",\n  \"message\": \"string\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Health",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/health",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3333"
+		}
+	]
+}
